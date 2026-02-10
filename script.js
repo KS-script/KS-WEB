@@ -1,18 +1,17 @@
-// ============================================
-// PARTICLE SYSTEM
-// ============================================
+// Initialize particles
 function createParticles() {
     const container = document.getElementById('particles');
-    const particleCount = 50;
+    const particleCount = 30;
     
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
         particle.style.left = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 15 + 's';
-        particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+        particle.style.animationDuration = (Math.random() * 10 + 8) + 's';
+        particle.style.animationDelay = Math.random() * 10 + 's';
+        particle.style.opacity = Math.random() * 0.5 + 0.2;
         
-        const colors = ['#6366f1', '#8b5cf6', '#ec4899', '#06b6d4'];
+        const colors = ['#6366f1', '#8b5cf6', '#ec4899', '#22d3ee'];
         particle.style.background = colors[Math.floor(Math.random() * colors.length)];
         particle.style.boxShadow = `0 0 10px ${particle.style.background}`;
         
@@ -22,59 +21,60 @@ function createParticles() {
 
 createParticles();
 
-// ============================================
-// SMOOTH SCROLLING
-// ============================================
+// Header scroll effect
+const header = document.querySelector('header');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// Mobile menu toggle
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileNav = document.getElementById('mobileNav');
+
+mobileMenu.addEventListener('click', () => {
+    mobileNav.classList.toggle('show');
+    const icon = mobileMenu.querySelector('i');
+    icon.className = mobileNav.classList.contains('show') ? 'fas fa-times' : 'fas fa-bars';
+});
+
+// Close mobile menu on link click
+document.querySelectorAll('.mobile-nav .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileNav.classList.remove('show');
+        mobileMenu.querySelector('i').className = 'fas fa-bars';
+    });
+});
+
+// Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const headerOffset = 100;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
+            const headerHeight = header.offsetHeight;
+            const targetPosition = target.offsetTop - headerHeight;
             window.scrollTo({
-                top: offsetPosition,
+                top: targetPosition,
                 behavior: 'smooth'
             });
         }
-        
-        // Close mobile menu if open
-        document.getElementById('mobileNav').classList.remove('show');
     });
 });
 
-// ============================================
-// HEADER SCROLL EFFECT
-// ============================================
-let lastScroll = 0;
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-    
-    lastScroll = currentScroll;
-});
-
-// ============================================
-// ACTIVE NAVIGATION LINK
-// ============================================
+// Active navigation link on scroll
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav-link');
 
 window.addEventListener('scroll', () => {
     let current = '';
-    
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        if (scrollY >= sectionTop - 200) {
+        if (scrollY >= (sectionTop - 200)) {
             current = section.getAttribute('id');
         }
     });
@@ -87,39 +87,22 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// ============================================
-// MOBILE MENU
-// ============================================
-document.getElementById('mobileMenu').addEventListener('click', () => {
-    document.getElementById('mobileNav').classList.toggle('show');
-});
-
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    const mobileNav = document.getElementById('mobileNav');
-    const mobileMenu = document.getElementById('mobileMenu');
-    
-    if (!mobileNav.contains(e.target) && !mobileMenu.contains(e.target)) {
-        mobileNav.classList.remove('show');
-    }
-});
-
-// ============================================
-// COPY SCRIPT FUNCTION
-// ============================================
+// Copy script function
 function copyScript() {
     const scriptText = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/KS-script/KS-RIVALS-HUB.Load/refs/heads/main/KS.Loader"))()';
     
     navigator.clipboard.writeText(scriptText).then(() => {
         showToast();
         
-        const btn = document.getElementById('copyBtn');
-        btn.classList.add('copied');
+        // Button animation
+        const btn = document.querySelector('.copy-btn');
+        const originalContent = btn.innerHTML;
         btn.innerHTML = '<i class="fas fa-check"></i><span>Copied!</span>';
+        btn.style.background = 'linear-gradient(135deg, #10b981, #34d399)';
         
         setTimeout(() => {
-            btn.classList.remove('copied');
-            btn.innerHTML = '<i class="fas fa-copy"></i><span>Copy</span>';
+            btn.innerHTML = originalContent;
+            btn.style.background = 'linear-gradient(135deg, var(--primary), var(--secondary))';
         }, 2500);
     }).catch(err => {
         console.error('Failed to copy:', err);
@@ -134,134 +117,116 @@ function copyScript() {
     });
 }
 
-// ============================================
-// TOAST NOTIFICATION
-// ============================================
+// Show toast notification
 function showToast() {
     const toast = document.getElementById('toast');
     toast.classList.add('show');
     
     setTimeout(() => {
         toast.classList.remove('show');
-    }, 3000);
+    }, 3500);
 }
 
-// ============================================
-// EXECUTOR TOGGLE
-// ============================================
+// Toggle executor list
 function toggleExecutors() {
     const executorList = document.getElementById('executorList');
-    const toggleBtn = document.getElementById('executorToggle');
+    const toggleBtn = document.querySelector('.executor-toggle');
     
     executorList.classList.toggle('show');
     toggleBtn.classList.toggle('active');
 }
 
-// ============================================
-// SCROLL ANIMATIONS
-// ============================================
+// Animate elements on scroll
 const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: '0px 0px -80px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
         }
     });
 }, observerOptions);
 
-// Observe elements
-document.querySelectorAll('.feature-card, .script-info-card, .social-card').forEach(el => {
+// Observe all feature cards with staggered animation
+document.querySelectorAll('.feature-card').forEach((card, index) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(40px)';
+    card.style.transition = `all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) ${index * 0.1}s`;
+    observer.observe(card);
+});
+
+// Observe other animated elements
+document.querySelectorAll('.script-info-card, .social-card, .section-header').forEach((el) => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+    el.style.transform = 'translateY(40px)';
+    el.style.transition = 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
     observer.observe(el);
 });
 
-// Add animate-in class styles
-const style = document.createElement('style');
-style.textContent = `
-    .animate-in {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-    }
-`;
-document.head.appendChild(style);
-
-// ============================================
-// PARALLAX EFFECT FOR BACKGROUND
-// ============================================
-document.addEventListener('mousemove', (e) => {
-    const orbs = document.querySelectorAll('.gradient-orb');
-    const x = (e.clientX / window.innerWidth - 0.5) * 2;
-    const y = (e.clientY / window.innerHeight - 0.5) * 2;
-    
-    orbs.forEach((orb, index) => {
-        const speed = (index + 1) * 30;
-        const xMove = x * speed;
-        const yMove = y * speed;
-        orb.style.transform = `translate(${xMove}px, ${yMove}px)`;
-    });
-});
-
-// ============================================
-// PREVENT DISCORD LINK CLICK
-// ============================================
-document.querySelector('.social-card.discord')?.addEventListener('click', (e) => {
+// Prevent Discord link click
+document.querySelector('.social-card.discord').addEventListener('click', (e) => {
     e.preventDefault();
 });
 
-// ============================================
-// TYPING EFFECT FOR HERO (Optional Enhancement)
-// ============================================
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    
-    type();
-}
+// Parallax effect for gradient orbs
+let mouseX = 0;
+let mouseY = 0;
+let currentX = 0;
+let currentY = 0;
 
-// ============================================
-// FEATURE CARDS STAGGER ANIMATION
-// ============================================
-document.querySelectorAll('.feature-card').forEach((card, index) => {
-    card.style.transitionDelay = `${index * 0.1}s`;
+document.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+    mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
 });
 
-// ============================================
-// CODE SYNTAX HIGHLIGHT HOVER EFFECT
-// ============================================
-const codeBox = document.querySelector('.code-box');
-if (codeBox) {
-    codeBox.addEventListener('mouseenter', () => {
-        codeBox.style.textShadow = '0 0 10px rgba(99, 102, 241, 0.3)';
+function animateOrbs() {
+    currentX += (mouseX - currentX) * 0.05;
+    currentY += (mouseY - currentY) * 0.05;
+    
+    const orbs = document.querySelectorAll('.gradient-orb');
+    orbs.forEach((orb, index) => {
+        const speed = (index + 1) * 30;
+        orb.style.transform = `translate(${currentX * speed}px, ${currentY * speed}px)`;
     });
     
-    codeBox.addEventListener('mouseleave', () => {
-        codeBox.style.textShadow = 'none';
-    });
+    requestAnimationFrame(animateOrbs);
 }
 
-// ============================================
-// INITIALIZE
-// ============================================
-document.addEventListener('DOMContentLoaded', () => {
-    // Add loaded class to body for initial animations
-    document.body.classList.add('loaded');
+animateOrbs();
+
+// Add typing effect to code (optional enhancement)
+function typeCode() {
+    const codeElement = document.getElementById('scriptCode');
+    const originalHTML = codeElement.innerHTML;
+    codeElement.innerHTML = '';
     
-    // Trigger hero animations
+    let i = 0;
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = originalHTML;
+    const text = tempDiv.textContent;
+    
+    // Reset to original after a delay
     setTimeout(() => {
-        document.querySelector('.hero-content')?.classList.add('animate-in');
-    }, 300);
+        codeElement.innerHTML = originalHTML;
+    }, 100);
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', () => {
+    // Add loaded class for initial animations
+    document.body.classList.add('loaded');
+});
+
+// Button hover sound effect (optional - visual feedback)
+document.querySelectorAll('.btn, .copy-btn').forEach(btn => {
+    btn.addEventListener('mouseenter', () => {
+        btn.style.transform = 'translateY(-3px) scale(1.02)';
+    });
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translateY(0) scale(1)';
+    });
 });
