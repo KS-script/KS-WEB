@@ -6,21 +6,39 @@
     <title>KS SCRIPT - Premium Roblox Scripts</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Animated Background -->
     <div class="animated-bg">
+        <!-- Gradient Orbs -->
         <div class="gradient-orb orb-1"></div>
         <div class="gradient-orb orb-2"></div>
         <div class="gradient-orb orb-3"></div>
+        <div class="gradient-orb orb-4"></div>
+        
+        <!-- Grid Pattern -->
+        <div class="grid-pattern"></div>
+        
+        <!-- Floating Particles -->
+        <div class="particles" id="particles"></div>
+        
+        <!-- Animated Lines -->
+        <div class="animated-lines">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+        </div>
     </div>
 
     <!-- Header -->
     <header>
         <div class="container">
             <div class="logo">
-                <i class="fas fa-code"></i>
-                <h1>KS SCRIPT</h1>
+                <div class="logo-icon">
+                    <i class="fas fa-terminal"></i>
+                </div>
+                <h1 class="gradient-text-animated">KS SCRIPT</h1>
             </div>
             <nav>
                 <a href="#home" class="nav-link active">Home</a>
@@ -28,29 +46,52 @@
                 <a href="#script" class="nav-link">Script</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </nav>
+            <button class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#home" class="mobile-nav-link">Home</a>
+        <a href="#features" class="mobile-nav-link">Features</a>
+        <a href="#script" class="mobile-nav-link">Script</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">Premium Quality</div>
-                <h2 class="hero-title">KS SCRIPT</h2>
-                <p class="hero-subtitle">Experience the most advanced Roblox script with cutting-edge features</p>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <i class="fas fa-users"></i>
-                        <span>10K+ Users</span>
-                    </div>
-                    <div class="stat-item">
+                <h2 class="hero-title">
+                    <span class="gradient-text-animated">KS SCRIPT</span>
+                </h2>
+                <p class="hero-subtitle color-shift">
+                    Experience the most advanced Roblox script with cutting-edge features
+                </p>
+                <div class="hero-cta">
+                    <a href="#script" class="btn-primary">
                         <i class="fas fa-download"></i>
-                        <span>50K+ Downloads</span>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-star"></i>
-                        <span>5.0 Rating</span>
-                    </div>
+                        Get Script
+                    </a>
+                    <a href="#features" class="btn-secondary">
+                        <i class="fas fa-info-circle"></i>
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Floating Cards Animation -->
+            <div class="floating-cards">
+                <div class="floating-card card-1">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="floating-card card-2">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="floating-card card-3">
+                    <i class="fas fa-code"></i>
                 </div>
             </div>
         </div>
@@ -59,35 +100,50 @@
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="container">
-            <h2 class="section-title">Key Features</h2>
+            <div class="section-header">
+                <h2 class="section-title gradient-text-animated">Key Features</h2>
+                <p class="section-subtitle color-shift">Powerful features designed for the best experience</p>
+            </div>
+            
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-glow"></div>
                     <div class="feature-icon">
                         <i class="fas fa-gift"></i>
                     </div>
-                    <h3>100% Free Script</h3>
-                    <p>Completely free to use with no hidden costs or premium tiers</p>
+                    <h3 class="color-shift-slow">100% Free Script</h3>
+                    <p>Completely free to use with no hidden costs or premium tiers. Everyone deserves access to quality scripts.</p>
+                    <div class="feature-badge">Free Forever</div>
                 </div>
-                <div class="feature-card">
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-glow"></div>
                     <div class="feature-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
-                    <h3>Fast Execution</h3>
-                    <p>Lightning-fast script execution for seamless performance</p>
+                    <h3 class="color-shift-slow">Fast Execution</h3>
+                    <p>Lightning-fast script execution optimized for seamless performance without any lag or delays.</p>
+                    <div class="feature-badge">Ultra Fast</div>
                 </div>
-                <div class="feature-card">
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-glow"></div>
                     <div class="feature-icon">
                         <i class="fas fa-sync-alt"></i>
                     </div>
-                    <h3>Auto Update</h3>
-                    <p>Automatically updates to the latest version without manual intervention</p>
+                    <h3 class="color-shift-slow">Auto Update</h3>
+                    <p>Automatically updates to the latest version. No manual downloads needed, always stay up to date.</p>
+                    <div class="feature-badge">Always Fresh</div>
                 </div>
-                <div class="feature-card">
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-glow"></div>
                     <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Anti-Cheat Bypass</h3>
-                    <p>Advanced anti-detection system to keep you safe</p>
+                    <h3 class="color-shift-slow">Anti-Cheat Bypass</h3>
+                    <p>Advanced anti-detection system engineered to keep your account safe and secure at all times.</p>
+                    <div class="feature-badge">Undetected</div>
                 </div>
             </div>
         </div>
@@ -96,78 +152,153 @@
     <!-- Script Section -->
     <section class="script-section" id="script">
         <div class="container">
-            <h2 class="section-title">Get The Script</h2>
+            <div class="section-header">
+                <h2 class="section-title gradient-text-animated">Get The Script</h2>
+                <p class="section-subtitle color-shift">Copy and execute in your favorite executor</p>
+            </div>
             
             <!-- Script Info Card -->
             <div class="script-info-card">
-                <div class="info-header">
-                    <div class="info-item">
-                        <span class="label">Made by</span>
-                        <span class="value">Team KS</span>
+                <div class="card-glow"></div>
+                
+                <!-- Info Pills -->
+                <div class="info-pills">
+                    <div class="info-pill">
+                        <i class="fas fa-users"></i>
+                        <span>Made by <strong>Team KS</strong></span>
                     </div>
-                    <div class="info-item">
-                        <span class="label">Version</span>
-                        <span class="value">1.88</span>
+                    <div class="info-pill highlight">
+                        <i class="fas fa-code-branch"></i>
+                        <span>Version <strong>1.88</strong></span>
                     </div>
-                    <div class="info-item">
-                        <span class="label">Latest Update</span>
-                        <span class="value">2026.02.01</span>
+                    <div class="info-pill">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Updated <strong>2026.02.01</strong></span>
                     </div>
                 </div>
                 
-                <!-- Script Code Box -->
+                <!-- Script Code Box with Lua Highlighting -->
                 <div class="code-container">
                     <div class="code-header">
-                        <span><i class="fas fa-code"></i> Script</span>
-                        <button class="copy-btn" onclick="copyScript()">
-                            <i class="fas fa-copy"></i> Copy
+                        <div class="code-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="code-title">
+                            <i class="fas fa-file-code"></i>
+                            KS_Script.lua
+                        </span>
+                        <button class="copy-btn" id="copyBtn" onclick="copyScript()">
+                            <i class="fas fa-copy"></i>
+                            <span>Copy</span>
                         </button>
                     </div>
-                    <pre class="code-box" id="scriptCode">loadstring(game:HttpGet("https://raw.githubusercontent.com/KS-script/KS-RIVALS-HUB.Load/refs/heads/main/KS.Loader"))()</pre>
+                    <div class="code-body">
+                        <div class="line-numbers">
+                            <span>1</span>
+                        </div>
+                        <pre class="code-box" id="scriptCode"><code><span class="lua-func">loadstring</span><span class="lua-paren">(</span><span class="lua-var">game</span><span class="lua-colon">:</span><span class="lua-method">HttpGet</span><span class="lua-paren">(</span><span class="lua-string">"https://raw.githubusercontent.com/KS-script/KS-RIVALS-HUB.Load/refs/heads/main/KS.Loader"</span><span class="lua-paren">)</span><span class="lua-paren">)</span><span class="lua-paren">(</span><span class="lua-paren">)</span></code></pre>
+                    </div>
                 </div>
 
                 <!-- Executor Compatibility -->
                 <div class="executor-section">
-                    <button class="executor-toggle" onclick="toggleExecutors()">
-                        <span>Executor Compatibility</span>
-                        <i class="fas fa-chevron-down"></i>
+                    <button class="executor-toggle" id="executorToggle" onclick="toggleExecutors()">
+                        <div class="toggle-left">
+                            <i class="fas fa-microchip"></i>
+                            <span>Executor Compatibility</span>
+                        </div>
+                        <div class="toggle-right">
+                            <span class="toggle-hint">Click to view</span>
+                            <div class="toggle-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
                     </button>
                     <div class="executor-list" id="executorList">
-                        <div class="executor-item">
-                            <span>Solara</span>
-                            <span class="status-red">🔴</span>
-                        </div>
-                        <div class="executor-item">
-                            <span>Xeno</span>
-                            <span class="status-red">🔴</span>
-                        </div>
-                        <div class="executor-item">
-                            <span>Swift</span>
-                            <span class="status-green">🟢</span>
-                        </div>
-                        <div class="executor-item">
-                            <span>Wave</span>
-                            <span class="status-green">🟢</span>
-                        </div>
-                        <div class="executor-item">
-                            <span>Potassium</span>
-                            <span class="status-green">🟢</span>
-                        </div>
-                        <div class="executor-item">
-                            <span>Volcano</span>
-                            <span class="status-green">🟢</span>
-                        </div>
-                        <div class="executor-item">
-                            <span>Zenith</span>
-                            <span class="status-green">🟢</span>
-                        </div>
-                        <div class="executor-item">
-                            <span>Seliware</span>
-                            <span class="status-green">🟢</span>
-                        </div>
-                        <div class="executor-item">
-                            <span>Velocity</span>
-                            <span class="status-green">🟢</span>
+                        <div class="executor-grid">
+                            <div class="executor-item not-supported">
+                                <div class="executor-info">
+                                    <span class="executor-name">Solara</span>
+                                </div>
+                                <div class="status-indicator">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span>Not Supported</span>
+                                </div>
+                            </div>
+                            <div class="executor-item not-supported">
+                                <div class="executor-info">
+                                    <span class="executor-name">Xeno</span>
+                                </div>
+                                <div class="status-indicator">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span>Not Supported</span>
+                                </div>
+                            </div>
+                            <div class="executor-item supported">
+                                <div class="executor-info">
+                                    <span class="executor-name">Swift</span>
+                                </div>
+                                <div class="status-indicator">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Supported</span>
+                                </div>
+                            </div>
+                            <div class="executor-item supported">
+                                <div class="executor-info">
+                                    <span class="executor-name">Wave</span>
+                                </div>
+                                <div class="status-indicator">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Supported</span>
+                                </div>
+                            </div>
+                            <div class="executor-item supported">
+                                <div class="executor-info">
+                                    <span class="executor-name">Potassium</span>
+                                </div>
+                                <div class="status-indicator">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Supported</span>
+                                </div>
+                            </div>
+                            <div class="executor-item supported">
+                                <div class="executor-info">
+                                    <span class="executor-name">Volcano</span>
+                                </div>
+                                <div class="status-indicator">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Supported</span>
+                                </div>
+                            </div>
+                            <div class="executor-item supported">
+                                <div class="executor-info">
+                                    <span class="executor-name">Zenith</span>
+                                </div>
+                                <div class="status-indicator">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Supported</span>
+                                </div>
+                            </div>
+                            <div class="executor-item supported">
+                                <div class="executor-info">
+                                    <span class="executor-name">Seliware</span>
+                                </div>
+                                <div class="status-indicator">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Supported</span>
+                                </div>
+                            </div>
+                            <div class="executor-item supported">
+                                <div class="executor-info">
+                                    <span class="executor-name">Velocity</span>
+                                </div>
+                                <div class="status-indicator">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Supported</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -178,17 +309,35 @@
     <!-- Social Section -->
     <section class="social-section" id="contact">
         <div class="container">
-            <h2 class="section-title">Connect With Us</h2>
+            <div class="section-header">
+                <h2 class="section-title gradient-text-animated">Connect With Us</h2>
+                <p class="section-subtitle color-shift">Stay updated with the latest news and updates</p>
+            </div>
+            
             <div class="social-links">
                 <a href="https://www.youtube.com/@KS_SCRIPT_Owner" target="_blank" class="social-card youtube">
-                    <i class="fab fa-youtube"></i>
-                    <span>YouTube</span>
-                    <p>Watch tutorials & updates</p>
+                    <div class="social-glow"></div>
+                    <div class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="social-info">
+                        <span class="social-name">YouTube</span>
+                        <p>Watch tutorials & updates</p>
+                    </div>
+                    <div class="social-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
                 </a>
+                
                 <div class="social-card discord disabled">
-                    <i class="fab fa-discord"></i>
-                    <span>Discord</span>
-                    <p>Coming Soon...</p>
+                    <div class="social-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <div class="social-info">
+                        <span class="social-name">Discord</span>
+                        <p>Coming Soon...</p>
+                    </div>
+                    <div class="coming-soon-badge">Soon</div>
                 </div>
             </div>
         </div>
@@ -197,15 +346,26 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 KS SCRIPT. All rights reserved.</p>
-            <p>Made with <i class="fas fa-heart"></i> by Team KS</p>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-terminal"></i>
+                    <span class="gradient-text-animated">KS SCRIPT</span>
+                </div>
+                <p class="footer-text">Made with <i class="fas fa-heart pulse"></i> by Team KS</p>
+                <p class="footer-copyright">&copy; 2026 KS SCRIPT. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
     <!-- Toast Notification -->
     <div class="toast" id="toast">
-        <i class="fas fa-check-circle"></i>
-        <span>Script copied to clipboard!</span>
+        <div class="toast-icon">
+            <i class="fas fa-check"></i>
+        </div>
+        <div class="toast-content">
+            <span class="toast-title">Copied!</span>
+            <span class="toast-message">Script copied to clipboard</span>
+        </div>
     </div>
 
     <script src="script.js"></script>
