@@ -11,24 +11,19 @@
 <body>
     <!-- Animated Background -->
     <div class="animated-bg">
-        <!-- Gradient Orbs -->
         <div class="gradient-orb orb-1"></div>
         <div class="gradient-orb orb-2"></div>
         <div class="gradient-orb orb-3"></div>
-        <div class="gradient-orb orb-4"></div>
-        
-        <!-- Grid Pattern -->
-        <div class="grid-pattern"></div>
-        
-        <!-- Floating Particles -->
+        <div class="grid-overlay"></div>
         <div class="particles" id="particles"></div>
-        
-        <!-- Animated Lines -->
-        <div class="animated-lines">
-            <div class="line line-1"></div>
-            <div class="line line-2"></div>
-            <div class="line line-3"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
         </div>
+        <div class="scan-line"></div>
     </div>
 
     <!-- Header -->
@@ -36,7 +31,7 @@
         <div class="container">
             <div class="logo">
                 <div class="logo-icon">
-                    <i class="fas fa-terminal"></i>
+                    <i class="fas fa-code"></i>
                 </div>
                 <h1 class="gradient-text-animated">KS SCRIPT</h1>
             </div>
@@ -54,45 +49,41 @@
 
     <!-- Mobile Navigation -->
     <div class="mobile-nav" id="mobileNav">
-        <a href="#home" class="mobile-nav-link">Home</a>
-        <a href="#features" class="mobile-nav-link">Features</a>
-        <a href="#script" class="mobile-nav-link">Script</a>
-        <a href="#contact" class="mobile-nav-link">Contact</a>
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#script" class="nav-link">Script</a>
+        <a href="#contact" class="nav-link">Contact</a>
     </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
+                <div class="hero-icon">
+                    <i class="fas fa-terminal"></i>
+                </div>
                 <h2 class="hero-title">
                     <span class="gradient-text-animated">KS SCRIPT</span>
                 </h2>
-                <p class="hero-subtitle color-shift">
+                <p class="hero-subtitle text-glow">
                     Experience the most advanced Roblox script with cutting-edge features
                 </p>
-                <div class="hero-cta">
-                    <a href="#script" class="btn-primary">
+                <div class="hero-buttons">
+                    <a href="#script" class="btn btn-primary">
                         <i class="fas fa-download"></i>
                         Get Script
                     </a>
-                    <a href="#features" class="btn-secondary">
+                    <a href="#features" class="btn btn-secondary">
                         <i class="fas fa-info-circle"></i>
                         Learn More
                     </a>
                 </div>
             </div>
-            
-            <!-- Floating Cards Animation -->
-            <div class="floating-cards">
-                <div class="floating-card card-1">
-                    <i class="fas fa-shield-alt"></i>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
                 </div>
-                <div class="floating-card card-2">
-                    <i class="fas fa-bolt"></i>
-                </div>
-                <div class="floating-card card-3">
-                    <i class="fas fa-code"></i>
-                </div>
+                <span>Scroll Down</span>
             </div>
         </div>
     </section>
@@ -101,49 +92,49 @@
     <section class="features" id="features">
         <div class="container">
             <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-star"></i>
+                    Features
+                </span>
                 <h2 class="section-title gradient-text-animated">Key Features</h2>
-                <p class="section-subtitle color-shift">Powerful features designed for the best experience</p>
+                <p class="section-desc text-glow">Discover what makes KS Script stand out</p>
             </div>
-            
             <div class="features-grid">
-                <div class="feature-card" data-aos="fade-up">
+                <div class="feature-card" data-delay="0">
                     <div class="feature-glow"></div>
                     <div class="feature-icon">
                         <i class="fas fa-gift"></i>
                     </div>
-                    <h3 class="color-shift-slow">100% Free Script</h3>
-                    <p>Completely free to use with no hidden costs or premium tiers. Everyone deserves access to quality scripts.</p>
-                    <div class="feature-badge">Free Forever</div>
+                    <h3 class="gradient-text">100% Free Script</h3>
+                    <p>Completely free to use with no hidden costs or premium tiers</p>
+                    <div class="feature-line"></div>
                 </div>
-                
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card" data-delay="100">
                     <div class="feature-glow"></div>
                     <div class="feature-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
-                    <h3 class="color-shift-slow">Fast Execution</h3>
-                    <p>Lightning-fast script execution optimized for seamless performance without any lag or delays.</p>
-                    <div class="feature-badge">Ultra Fast</div>
+                    <h3 class="gradient-text">Fast Execution</h3>
+                    <p>Lightning-fast script execution for seamless performance</p>
+                    <div class="feature-line"></div>
                 </div>
-                
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card" data-delay="200">
                     <div class="feature-glow"></div>
                     <div class="feature-icon">
                         <i class="fas fa-sync-alt"></i>
                     </div>
-                    <h3 class="color-shift-slow">Auto Update</h3>
-                    <p>Automatically updates to the latest version. No manual downloads needed, always stay up to date.</p>
-                    <div class="feature-badge">Always Fresh</div>
+                    <h3 class="gradient-text">Auto Update</h3>
+                    <p>Automatically updates to the latest version without manual intervention</p>
+                    <div class="feature-line"></div>
                 </div>
-                
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-card" data-delay="300">
                     <div class="feature-glow"></div>
                     <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3 class="color-shift-slow">Anti-Cheat Bypass</h3>
-                    <p>Advanced anti-detection system engineered to keep your account safe and secure at all times.</p>
-                    <div class="feature-badge">Undetected</div>
+                    <h3 class="gradient-text">Anti-Cheat Bypass</h3>
+                    <p>Advanced anti-detection system to keep you safe</p>
+                    <div class="feature-line"></div>
                 </div>
             </div>
         </div>
@@ -153,31 +144,49 @@
     <section class="script-section" id="script">
         <div class="container">
             <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-code"></i>
+                    Script
+                </span>
                 <h2 class="section-title gradient-text-animated">Get The Script</h2>
-                <p class="section-subtitle color-shift">Copy and execute in your favorite executor</p>
+                <p class="section-desc text-glow">Copy and execute in your favorite executor</p>
             </div>
             
             <!-- Script Info Card -->
             <div class="script-info-card">
                 <div class="card-glow"></div>
                 
-                <!-- Info Pills -->
-                <div class="info-pills">
-                    <div class="info-pill">
-                        <i class="fas fa-users"></i>
-                        <span>Made by <strong>Team KS</strong></span>
+                <div class="info-header">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="info-content">
+                            <span class="label">Made by</span>
+                            <span class="value gradient-text">Team KS</span>
+                        </div>
                     </div>
-                    <div class="info-pill highlight">
-                        <i class="fas fa-code-branch"></i>
-                        <span>Version <strong>1.88</strong></span>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div class="info-content">
+                            <span class="label">Version</span>
+                            <span class="value gradient-text">1.88</span>
+                        </div>
                     </div>
-                    <div class="info-pill">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span>Updated <strong>2026.02.01</strong></span>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <span class="label">Latest Update</span>
+                            <span class="value gradient-text">2026.02.01</span>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Script Code Box with Lua Highlighting -->
+                <!-- Script Code Box -->
                 <div class="code-container">
                     <div class="code-header">
                         <div class="code-dots">
@@ -187,33 +196,31 @@
                         </div>
                         <span class="code-title">
                             <i class="fas fa-file-code"></i>
-                            KS_Script.lua
+                            KS.Loader.lua
                         </span>
-                        <button class="copy-btn" id="copyBtn" onclick="copyScript()">
+                        <button class="copy-btn" onclick="copyScript()">
                             <i class="fas fa-copy"></i>
                             <span>Copy</span>
                         </button>
                     </div>
-                    <div class="code-body">
+                    <div class="code-box">
                         <div class="line-numbers">
                             <span>1</span>
                         </div>
-                        <pre class="code-box" id="scriptCode"><code><span class="lua-func">loadstring</span><span class="lua-paren">(</span><span class="lua-var">game</span><span class="lua-colon">:</span><span class="lua-method">HttpGet</span><span class="lua-paren">(</span><span class="lua-string">"https://raw.githubusercontent.com/KS-script/KS-RIVALS-HUB.Load/refs/heads/main/KS.Loader"</span><span class="lua-paren">)</span><span class="lua-paren">)</span><span class="lua-paren">(</span><span class="lua-paren">)</span></code></pre>
+                        <pre class="code-content" id="scriptCode"><span class="lua-func">loadstring</span><span class="lua-paren">(</span><span class="lua-property">game</span><span class="lua-operator">:</span><span class="lua-method">HttpGet</span><span class="lua-paren">(</span><span class="lua-string">"https://raw.githubusercontent.com/KS-script/KS-RIVALS-HUB.Load/refs/heads/main/KS.Loader"</span><span class="lua-paren">)</span><span class="lua-paren">)</span><span class="lua-paren">(</span><span class="lua-paren">)</span></pre>
                     </div>
                 </div>
 
                 <!-- Executor Compatibility -->
                 <div class="executor-section">
-                    <button class="executor-toggle" id="executorToggle" onclick="toggleExecutors()">
+                    <button class="executor-toggle" onclick="toggleExecutors()">
                         <div class="toggle-left">
                             <i class="fas fa-microchip"></i>
                             <span>Executor Compatibility</span>
                         </div>
                         <div class="toggle-right">
-                            <span class="toggle-hint">Click to view</span>
-                            <div class="toggle-icon">
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
+                            <span class="toggle-status">Click to view</span>
+                            <i class="fas fa-chevron-down toggle-arrow"></i>
                         </div>
                     </button>
                     <div class="executor-list" id="executorList">
@@ -310,33 +317,31 @@
     <section class="social-section" id="contact">
         <div class="container">
             <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-share-alt"></i>
+                    Social
+                </span>
                 <h2 class="section-title gradient-text-animated">Connect With Us</h2>
-                <p class="section-subtitle color-shift">Stay updated with the latest news and updates</p>
+                <p class="section-desc text-glow">Follow us for updates and support</p>
             </div>
-            
             <div class="social-links">
                 <a href="https://www.youtube.com/@KS_SCRIPT_Owner" target="_blank" class="social-card youtube">
                     <div class="social-glow"></div>
                     <div class="social-icon">
                         <i class="fab fa-youtube"></i>
                     </div>
-                    <div class="social-info">
-                        <span class="social-name">YouTube</span>
-                        <p>Watch tutorials & updates</p>
-                    </div>
+                    <span class="social-name">YouTube</span>
+                    <p>Watch tutorials & updates</p>
                     <div class="social-arrow">
                         <i class="fas fa-arrow-right"></i>
                     </div>
                 </a>
-                
                 <div class="social-card discord disabled">
                     <div class="social-icon">
                         <i class="fab fa-discord"></i>
                     </div>
-                    <div class="social-info">
-                        <span class="social-name">Discord</span>
-                        <p>Coming Soon...</p>
-                    </div>
+                    <span class="social-name">Discord</span>
+                    <p>Coming Soon...</p>
                     <div class="coming-soon-badge">Soon</div>
                 </div>
             </div>
@@ -348,11 +353,11 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <i class="fas fa-terminal"></i>
+                    <i class="fas fa-code"></i>
                     <span class="gradient-text-animated">KS SCRIPT</span>
                 </div>
-                <p class="footer-text">Made with <i class="fas fa-heart pulse"></i> by Team KS</p>
-                <p class="footer-copyright">&copy; 2026 KS SCRIPT. All rights reserved.</p>
+                <p>&copy; 2026 KS SCRIPT. All rights reserved.</p>
+                <p class="footer-credit">Made with <i class="fas fa-heart"></i> by Team KS</p>
             </div>
         </div>
     </footer>
@@ -363,7 +368,7 @@
             <i class="fas fa-check"></i>
         </div>
         <div class="toast-content">
-            <span class="toast-title">Copied!</span>
+            <span class="toast-title">Success!</span>
             <span class="toast-message">Script copied to clipboard</span>
         </div>
     </div>
