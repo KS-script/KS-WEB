@@ -1,232 +1,378 @@
-// Initialize particles
-function createParticles() {
-    const container = document.getElementById('particles');
-    const particleCount = 30;
-    
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.animationDuration = (Math.random() * 10 + 8) + 's';
-        particle.style.animationDelay = Math.random() * 10 + 's';
-        particle.style.opacity = Math.random() * 0.5 + 0.2;
-        
-        const colors = ['#6366f1', '#8b5cf6', '#ec4899', '#22d3ee'];
-        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-        particle.style.boxShadow = `0 0 10px ${particle.style.background}`;
-        
-        container.appendChild(particle);
-    }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KS SCRIPT - Premium Roblox Scripts</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="grid-overlay"></div>
+        <div class="particles" id="particles"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+        <div class="scan-line"></div>
+    </div>
 
-createParticles();
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h1 class="gradient-text-animated">KS SCRIPT</h1>
+            </div>
+            <nav>
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#script" class="nav-link">Script</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <button class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
 
-// Header scroll effect
-const header = document.querySelector('header');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#script" class="nav-link">Script</a>
+        <a href="#contact" class="nav-link">Contact</a>
+    </div>
 
-// Mobile menu toggle
-const mobileMenu = document.getElementById('mobileMenu');
-const mobileNav = document.getElementById('mobileNav');
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-icon">
+                    <i class="fas fa-terminal"></i>
+                </div>
+                <h2 class="hero-title">
+                    <span class="gradient-text-animated">KS SCRIPT</span>
+                </h2>
+                <p class="hero-subtitle text-glow">
+                    Experience the most advanced Roblox script with cutting-edge features
+                </p>
+                <div class="hero-buttons">
+                    <a href="#script" class="btn btn-primary">
+                        <i class="fas fa-download"></i>
+                        Get Script
+                    </a>
+                    <a href="#features" class="btn btn-secondary">
+                        <i class="fas fa-info-circle"></i>
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <span>Scroll Down</span>
+            </div>
+        </div>
+    </section>
 
-mobileMenu.addEventListener('click', () => {
-    mobileNav.classList.toggle('show');
-    const icon = mobileMenu.querySelector('i');
-    icon.className = mobileNav.classList.contains('show') ? 'fas fa-times' : 'fas fa-bars';
-});
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-star"></i>
+                    Features
+                </span>
+                <h2 class="section-title gradient-text-animated">Key Features</h2>
+                <p class="section-desc text-glow">Discover what makes KS Script stand out</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-delay="0">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 class="gradient-text">100% Free Script</h3>
+                    <p>Completely free to use with no hidden costs or premium tiers</p>
+                    <div class="feature-line"></div>
+                </div>
+                <div class="feature-card" data-delay="100">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="gradient-text">Fast Execution</h3>
+                    <p>Lightning-fast script execution for seamless performance</p>
+                    <div class="feature-line"></div>
+                </div>
+                <div class="feature-card" data-delay="200">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="gradient-text">Auto Update</h3>
+                    <p>Automatically updates to the latest version without manual intervention</p>
+                    <div class="feature-line"></div>
+                </div>
+                <div class="feature-card" data-delay="300">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="gradient-text">Anti-Cheat Bypass</h3>
+                    <p>Advanced anti-detection system to keep you safe</p>
+                    <div class="feature-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-// Close mobile menu on link click
-document.querySelectorAll('.mobile-nav .nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        mobileNav.classList.remove('show');
-        mobileMenu.querySelector('i').className = 'fas fa-bars';
-    });
-});
+    <!-- Script Section -->
+    <section class="script-section" id="script">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-code"></i>
+                    Script
+                </span>
+                <h2 class="section-title gradient-text-animated">Get The Script</h2>
+                <p class="section-desc text-glow">Copy and execute in your favorite executor</p>
+            </div>
+            
+            <!-- Script Info Card -->
+            <div class="script-info-card">
+                <div class="card-glow"></div>
+                
+                <div class="info-header">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="info-content">
+                            <span class="label">Made by</span>
+                            <span class="value gradient-text">Team KS</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div class="info-content">
+                            <span class="label">Version</span>
+                            <span class="value gradient-text">1.88</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <span class="label">Latest Update</span>
+                            <span class="value gradient-text">2026.02.01</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Script Code Box -->
+                <div class="code-container">
+                    <div class="code-header">
+                        <div class="code-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="code-title">
+                            <i class="fas fa-file-code"></i>
+                            KS.Loader.lua
+                        </span>
+                        <button class="copy-btn" onclick="copyScript()">
+                            <i class="fas fa-copy"></i>
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                    <div class="code-box">
+                        <div class="line-numbers">
+                            <span>1</span>
+                        </div>
+                        <pre class="code-content" id="scriptCode"><span class="lua-func">loadstring</span><span class="lua-paren">(</span><span class="lua-property">game</span><span class="lua-operator">:</span><span class="lua-method">HttpGet</span><span class="lua-paren">(</span><span class="lua-string">"https://raw.githubusercontent.com/KS-script/KS-RIVALS-HUB.Load/refs/heads/main/KS.Loader"</span><span class="lua-paren">)</span><span class="lua-paren">)</span><span class="lua-paren">(</span><span class="lua-paren">)</span></pre>
+                    </div>
+                </div>
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const headerHeight = header.offsetHeight;
-            const targetPosition = target.offsetTop - headerHeight;
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
+                <!-- Executor Compatibility -->
+                <div class="executor-section">
+                    <button class="executor-toggle" onclick="toggleExecutors()">
+                        <div class="toggle-left">
+                            <i class="fas fa-microchip"></i>
+                            <span>Executor Compatibility</span>
+                        </div>
+                        <div class="toggle-right">
+                            <span class="toggle-status">Click to view</span>
+                            <i class="fas fa-chevron-down toggle-arrow"></i>
+                        </div>
+                    </button>
+                    <div class="executor-list" id="executorList">
+                        <div class="executor-grid">
+                            <div class="executor-item not-supported">
+                                <div class="executor-info">
+                                    <span class="executor-name">Solara</span>
+                                </div>
+                                <div class="status-indicator">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span>Not Supported</span>
+                                </div>
+                            </div>
+                            <div class="executor-item not-supported">
+                                <div class="executor-info">
+                                    <span class="executor-name">Xeno</span>
+                                </div>
+                                <div class="status-indicator">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span>Not Supported</span>
+                                </div>
+                            </div>
+                            <div class="executor-item supported">
+                                <div class="executor-info">
+                                    <span class="executor-name">Swift</span>
+                                </div>
+                                <div class="status-indicator">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Supported</span>
+                                </div>
+                            </div>
+                            <div class="executor-item supported">
+                                <div class="executor-info">
+                                    <span class="executor-name">Wave</span>
+                                </div>
+                                <div class="status-indicator">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Supported</span>
+                                </div>
+                            </div>
+                            <div class="executor-item supported">
+                                <div class="executor-info">
+                                    <span class="executor-name">Potassium</span>
+                                </div>
+                                <div class="status-indicator">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Supported</span>
+                                </div>
+                            </div>
+                            <div class="executor-item supported">
+                                <div class="executor-info">
+                                    <span class="executor-name">Volcano</span>
+                                </div>
+                                <div class="status-indicator">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Supported</span>
+                                </div>
+                            </div>
+                            <div class="executor-item supported">
+                                <div class="executor-info">
+                                    <span class="executor-name">Zenith</span>
+                                </div>
+                                <div class="status-indicator">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Supported</span>
+                                </div>
+                            </div>
+                            <div class="executor-item supported">
+                                <div class="executor-info">
+                                    <span class="executor-name">Seliware</span>
+                                </div>
+                                <div class="status-indicator">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Supported</span>
+                                </div>
+                            </div>
+                            <div class="executor-item supported">
+                                <div class="executor-info">
+                                    <span class="executor-name">Velocity</span>
+                                </div>
+                                <div class="status-indicator">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Supported</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-// Active navigation link on scroll
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-link');
+    <!-- Social Section -->
+    <section class="social-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-share-alt"></i>
+                    Social
+                </span>
+                <h2 class="section-title gradient-text-animated">Connect With Us</h2>
+                <p class="section-desc text-glow">Follow us for updates and support</p>
+            </div>
+            <div class="social-links">
+                <a href="https://www.youtube.com/@KS_SCRIPT_Owner" target="_blank" class="social-card youtube">
+                    <div class="social-glow"></div>
+                    <div class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <span class="social-name">YouTube</span>
+                    <p>Watch tutorials & updates</p>
+                    <div class="social-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+                <div class="social-card discord disabled">
+                    <div class="social-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <span class="social-name">Discord</span>
+                    <p>Coming Soon...</p>
+                    <div class="coming-soon-badge">Soon</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-code"></i>
+                    <span class="gradient-text-animated">KS SCRIPT</span>
+                </div>
+                <p>&copy; 2026 KS SCRIPT. All rights reserved.</p>
+                <p class="footer-credit">Made with <i class="fas fa-heart"></i> by Team KS</p>
+            </div>
+        </div>
+    </footer>
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === current) {
-            link.classList.add('active');
-        }
-    });
-});
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-icon">
+            <i class="fas fa-check"></i>
+        </div>
+        <div class="toast-content">
+            <span class="toast-title">Success!</span>
+            <span class="toast-message">Script copied to clipboard</span>
+        </div>
+    </div>
 
-// Copy script function
-function copyScript() {
-    const scriptText = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/KS-script/KS-RIVALS-HUB.Load/refs/heads/main/KS.Loader"))()';
-    
-    navigator.clipboard.writeText(scriptText).then(() => {
-        showToast();
-        
-        // Button animation
-        const btn = document.querySelector('.copy-btn');
-        const originalContent = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-check"></i><span>Copied!</span>';
-        btn.style.background = 'linear-gradient(135deg, #10b981, #34d399)';
-        
-        setTimeout(() => {
-            btn.innerHTML = originalContent;
-            btn.style.background = 'linear-gradient(135deg, var(--primary), var(--secondary))';
-        }, 2500);
-    }).catch(err => {
-        console.error('Failed to copy:', err);
-        // Fallback for older browsers
-        const textArea = document.createElement('textarea');
-        textArea.value = scriptText;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-        showToast();
-    });
-}
-
-// Show toast notification
-function showToast() {
-    const toast = document.getElementById('toast');
-    toast.classList.add('show');
-    
-    setTimeout(() => {
-        toast.classList.remove('show');
-    }, 3500);
-}
-
-// Toggle executor list
-function toggleExecutors() {
-    const executorList = document.getElementById('executorList');
-    const toggleBtn = document.querySelector('.executor-toggle');
-    
-    executorList.classList.toggle('show');
-    toggleBtn.classList.toggle('active');
-}
-
-// Animate elements on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -80px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe all feature cards with staggered animation
-document.querySelectorAll('.feature-card').forEach((card, index) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(40px)';
-    card.style.transition = `all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) ${index * 0.1}s`;
-    observer.observe(card);
-});
-
-// Observe other animated elements
-document.querySelectorAll('.script-info-card, .social-card, .section-header').forEach((el) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(40px)';
-    el.style.transition = 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-    observer.observe(el);
-});
-
-// Prevent Discord link click
-document.querySelector('.social-card.discord').addEventListener('click', (e) => {
-    e.preventDefault();
-});
-
-// Parallax effect for gradient orbs
-let mouseX = 0;
-let mouseY = 0;
-let currentX = 0;
-let currentY = 0;
-
-document.addEventListener('mousemove', (e) => {
-    mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-    mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
-});
-
-function animateOrbs() {
-    currentX += (mouseX - currentX) * 0.05;
-    currentY += (mouseY - currentY) * 0.05;
-    
-    const orbs = document.querySelectorAll('.gradient-orb');
-    orbs.forEach((orb, index) => {
-        const speed = (index + 1) * 30;
-        orb.style.transform = `translate(${currentX * speed}px, ${currentY * speed}px)`;
-    });
-    
-    requestAnimationFrame(animateOrbs);
-}
-
-animateOrbs();
-
-// Add typing effect to code (optional enhancement)
-function typeCode() {
-    const codeElement = document.getElementById('scriptCode');
-    const originalHTML = codeElement.innerHTML;
-    codeElement.innerHTML = '';
-    
-    let i = 0;
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = originalHTML;
-    const text = tempDiv.textContent;
-    
-    // Reset to original after a delay
-    setTimeout(() => {
-        codeElement.innerHTML = originalHTML;
-    }, 100);
-}
-
-// Initialize on load
-document.addEventListener('DOMContentLoaded', () => {
-    // Add loaded class for initial animations
-    document.body.classList.add('loaded');
-});
-
-// Button hover sound effect (optional - visual feedback)
-document.querySelectorAll('.btn, .copy-btn').forEach(btn => {
-    btn.addEventListener('mouseenter', () => {
-        btn.style.transform = 'translateY(-3px) scale(1.02)';
-    });
-    btn.addEventListener('mouseleave', () => {
-        btn.style.transform = 'translateY(0) scale(1)';
-    });
-});
+    <script src="script.js"></script>
+</body>
+</html>
