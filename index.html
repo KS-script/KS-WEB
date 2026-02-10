@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KS SCRIPT - Premium Roblox Scripts</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                <h1>KS SCRIPT</h1>
+            </div>
+            <nav>
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#script" class="nav-link">Script</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Premium Quality</div>
+                <h2 class="hero-title">KS SCRIPT</h2>
+                <p class="hero-subtitle">Experience the most advanced Roblox script with cutting-edge features</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-users"></i>
+                        <span>10K+ Users</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-download"></i>
+                        <span>50K+ Downloads</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-star"></i>
+                        <span>5.0 Rating</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>100% Free Script</h3>
+                    <p>Completely free to use with no hidden costs or premium tiers</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Fast Execution</h3>
+                    <p>Lightning-fast script execution for seamless performance</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Auto Update</h3>
+                    <p>Automatically updates to the latest version without manual intervention</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Anti-Cheat Bypass</h3>
+                    <p>Advanced anti-detection system to keep you safe</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script Section -->
+    <section class="script-section" id="script">
+        <div class="container">
+            <h2 class="section-title">Get The Script</h2>
+            
+            <!-- Script Info Card -->
+            <div class="script-info-card">
+                <div class="info-header">
+                    <div class="info-item">
+                        <span class="label">Made by</span>
+                        <span class="value">Team KS</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Version</span>
+                        <span class="value">1.88</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Latest Update</span>
+                        <span class="value">2026.02.01</span>
+                    </div>
+                </div>
+                
+                <!-- Script Code Box -->
+                <div class="code-container">
+                    <div class="code-header">
+                        <span><i class="fas fa-code"></i> Script</span>
+                        <button class="copy-btn" onclick="copyScript()">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    <pre class="code-box" id="scriptCode">loadstring(game:HttpGet("https://raw.githubusercontent.com/KS-script/KS-RIVALS-HUB.Load/refs/heads/main/KS.Loader"))()</pre>
+                </div>
+
+                <!-- Executor Compatibility -->
+                <div class="executor-section">
+                    <button class="executor-toggle" onclick="toggleExecutors()">
+                        <span>Executor Compatibility</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="executor-list" id="executorList">
+                        <div class="executor-item">
+                            <span>Solara</span>
+                            <span class="status-red">🔴</span>
+                        </div>
+                        <div class="executor-item">
+                            <span>Xeno</span>
+                            <span class="status-red">🔴</span>
+                        </div>
+                        <div class="executor-item">
+                            <span>Swift</span>
+                            <span class="status-green">🟢</span>
+                        </div>
+                        <div class="executor-item">
+                            <span>Wave</span>
+                            <span class="status-green">🟢</span>
+                        </div>
+                        <div class="executor-item">
+                            <span>Potassium</span>
+                            <span class="status-green">🟢</span>
+                        </div>
+                        <div class="executor-item">
+                            <span>Volcano</span>
+                            <span class="status-green">🟢</span>
+                        </div>
+                        <div class="executor-item">
+                            <span>Zenith</span>
+                            <span class="status-green">🟢</span>
+                        </div>
+                        <div class="executor-item">
+                            <span>Seliware</span>
+                            <span class="status-green">🟢</span>
+                        </div>
+                        <div class="executor-item">
+                            <span>Velocity</span>
+                            <span class="status-green">🟢</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Section -->
+    <section class="social-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Connect With Us</h2>
+            <div class="social-links">
+                <a href="https://www.youtube.com/@KS_SCRIPT_Owner" target="_blank" class="social-card youtube">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+                    <p>Watch tutorials & updates</p>
+                </a>
+                <div class="social-card discord disabled">
+                    <i class="fab fa-discord"></i>
+                    <span>Discord</span>
+                    <p>Coming Soon...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 KS SCRIPT. All rights reserved.</p>
+            <p>Made with <i class="fas fa-heart"></i> by Team KS</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span>Script copied to clipboard!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
