@@ -4,375 +4,532 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KS SCRIPT - Premium Roblox Scripts</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(45deg, #000, #0a0a0a);
+        }
+
+        .floating-orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.3), transparent);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .orb1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            left: -150px;
+            animation-delay: 0s;
+        }
+
+        .orb2 {
+            width: 250px;
+            height: 250px;
+            bottom: -125px;
+            right: -125px;
+            animation-delay: 5s;
+            background: radial-gradient(circle, rgba(0, 123, 255, 0.3), transparent);
+        }
+
+        .orb3 {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: 50%;
+            animation-delay: 10s;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.2), transparent);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(100px, -100px) scale(1.1);
+            }
+            66% {
+                transform: translate(-100px, 100px) scale(0.9);
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 3rem 0;
+            animation: fadeInDown 1s ease;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .tagline {
+            color: #888;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        /* Main Card */
+        .main-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.2s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(138, 43, 226, 0.5);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature h3 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .feature p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Script Box */
+        .script-box {
+            background: #0a0a0a;
+            border: 2px solid rgba(138, 43, 226, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .script-code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            word-break: break-all;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .script-code .keyword {
+            color: #4FC3F7;
+        }
+
+        .script-code .string {
+            color: #66BB6A;
+        }
+
+        .script-code .default {
+            color: #fff;
+        }
+
+        .copy-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            width: 100%;
+        }
+
+        .copy-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.98);
+        }
+
+        .copied {
+            background: linear-gradient(135deg, #66BB6A 0%, #43A047 100%);
+        }
+
+        /* Info Section */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .info-box h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .info-box p {
+            color: #ccc;
+            line-height: 1.6;
+            margin: 0.5rem 0;
+        }
+
+        /* Executor Section */
+        .executor-section {
+            margin: 2rem 0;
+        }
+
+        .executor-toggle {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .executor-toggle:hover {
+            border-color: rgba(138, 43, 226, 0.5);
+        }
+
+        .executor-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .executor-content.show {
+            max-height: 500px;
+        }
+
+        .executor-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 15px;
+            margin-top: 1rem;
+        }
+
+        .executor-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+        }
+
+        .status-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        .status-working {
+            background: #66BB6A;
+            box-shadow: 0 0 10px rgba(102, 187, 106, 0.5);
+        }
+
+        .status-not-working {
+            background: #EF5350;
+            box-shadow: 0 0 10px rgba(239, 83, 80, 0.5);
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo { font-size: 2rem; }
+            .container { padding: 1rem; }
+            .main-card { padding: 1.5rem; }
+        }
+    </style>
 </head>
 <body>
     <!-- Animated Background -->
-    <div class="animated-bg">
-        <div class="gradient-orb orb-1"></div>
-        <div class="gradient-orb orb-2"></div>
-        <div class="gradient-orb orb-3"></div>
-        <div class="grid-overlay"></div>
-        <div class="particles" id="particles"></div>
-        <div class="floating-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-            <div class="shape shape-4"></div>
-            <div class="shape shape-5"></div>
-        </div>
-        <div class="scan-line"></div>
+    <div class="bg-animation">
+        <div class="floating-orb orb1"></div>
+        <div class="floating-orb orb2"></div>
+        <div class="floating-orb orb3"></div>
     </div>
 
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <h1 class="gradient-text-animated">KS SCRIPT</h1>
-            </div>
-            <nav>
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#features" class="nav-link">Features</a>
-                <a href="#script" class="nav-link">Script</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </nav>
-            <button class="mobile-menu" id="mobileMenu">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </header>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1 class="logo">KS SCRIPT</h1>
+            <p class="tagline">Premium Roblox Scripts for Elite Players</p>
+        </header>
 
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav" id="mobileNav">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#features" class="nav-link">Features</a>
-        <a href="#script" class="nav-link">Script</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <!-- Main Card -->
+        <div class="main-card">
+            <!-- Features -->
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🆓</div>
+                    <h3>100% Free</h3>
+                    <p>No hidden costs</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast Execution</h3>
+                    <p>Lightning speed</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Auto Update</h3>
+                    <p>Always latest version</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Anti-Cheat Bypass</h3>
+                    <p>Stay undetected</p>
+                </div>
+            </div>
+
+            <!-- Script Box -->
+            <div class="script-box">
+                <h2 style="margin-bottom: 1rem; color: #667eea;">Script Code</h2>
+                <div class="script-code">
+                    <span class="keyword">loadstring</span><span class="default">(</span><span class="keyword">game</span><span class="default">:HttpGet(</span><span class="string">"https://raw.githubusercontent.com/KS-script/KS-RIVALS-HUB.Load/refs/heads/main/KS.Loader"</span><span class="default">))()</span>
+                </div>
+                <button class="copy-btn" onclick="copyScript()">📋 Copy Script</button>
+            </div>
+
+            <!-- Info Grid -->
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>📊 Script Information</h3>
+                    <p><strong>Developer:</strong> Team KS</p>
+                    <p><strong>Version:</strong> 1.88</p>
+                    <p><strong>Latest Update:</strong> 2026.02.01</p>
+                </div>
+                <div class="info-box">
+                    <h3>🔗 Connect With Us</h3>
+                    <div class="social-links" style="justify-content: flex-start;">
+                        <a href="https://www.youtube.com/@KS_SCRIPT_Owner" target="_blank" class="social-link">
+                            📺 YouTube
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Executor Compatibility -->
+            <div class="executor-section">
+                <div class="executor-toggle" onclick="toggleExecutors()">
+                    <span style="font-weight: 600;">⚙️ Compatible Executors</span>
+                    <span id="toggle-arrow">▼</span>
+                </div>
+                <div class="executor-content" id="executor-content">
+                    <div class="executor-list">
+                        <div class="executor-item">
+                            <div class="status-indicator status-not-working"></div>
+                            <span>Solara</span>
+                        </div>
+                        <div class="executor-item">
+                            <div class="status-indicator status-not-working"></div>
+                            <span>Xeno</span>
+                        </div>
+                        <div class="executor-item">
+                            <div class="status-indicator status-working"></div>
+                            <span>Swift</span>
+                        </div>
+                        <div class="executor-item">
+                            <div class="status-indicator status-working"></div>
+                            <span>Wave</span>
+                        </div>
+                        <div class="executor-item">
+                            <div class="status-indicator status-working"></div>
+                            <span>Potassium</span>
+                        </div>
+                        <div class="executor-item">
+                            <div class="status-indicator status-working"></div>
+                            <span>Volcano</span>
+                        </div>
+                        <div class="executor-item">
+                            <div class="status-indicator status-working"></div>
+                            <span>Zenith</span>
+                        </div>
+                        <div class="executor-item">
+                            <div class="status-indicator status-working"></div>
+                            <span>Seliware</span>
+                        </div>
+                        <div class="executor-item">
+                            <div class="status-indicator status-working"></div>
+                            <span>Velocity</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 KS SCRIPT. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Made with ❤️ by Team KS</p>
+        </footer>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-icon">
-                    <i class="fas fa-terminal"></i>
-                </div>
-                <h2 class="hero-title">
-                    <span class="gradient-text-animated">KS SCRIPT</span>
-                </h2>
-                <p class="hero-subtitle text-glow">
-                    Experience the most advanced Roblox script with cutting-edge features
-                </p>
-                <div class="hero-buttons">
-                    <a href="#script" class="btn btn-primary">
-                        <i class="fas fa-download"></i>
-                        Get Script
-                    </a>
-                    <a href="#features" class="btn btn-secondary">
-                        <i class="fas fa-info-circle"></i>
-                        Learn More
-                    </a>
-                </div>
-            </div>
-            <div class="scroll-indicator">
-                <div class="mouse">
-                    <div class="wheel"></div>
-                </div>
-                <span>Scroll Down</span>
-            </div>
-        </div>
-    </section>
+    <script>
+        // Copy Script Function
+        function copyScript() {
+            const scriptText = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/KS-script/KS-RIVALS-HUB.Load/refs/heads/main/KS.Loader"))()';
+            navigator.clipboard.writeText(scriptText).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = '✅ Copied!';
+                btn.classList.add('copied');
+                
+                setTimeout(() => {
+                    btn.textContent = '📋 Copy Script';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">
-                    <i class="fas fa-star"></i>
-                    Features
-                </span>
-                <h2 class="section-title gradient-text-animated">Key Features</h2>
-                <p class="section-desc text-glow">Discover what makes KS Script stand out</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card" data-delay="0">
-                    <div class="feature-glow"></div>
-                    <div class="feature-icon">
-                        <i class="fas fa-gift"></i>
-                    </div>
-                    <h3 class="gradient-text">100% Free Script</h3>
-                    <p>Completely free to use with no hidden costs or premium tiers</p>
-                    <div class="feature-line"></div>
-                </div>
-                <div class="feature-card" data-delay="100">
-                    <div class="feature-glow"></div>
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3 class="gradient-text">Fast Execution</h3>
-                    <p>Lightning-fast script execution for seamless performance</p>
-                    <div class="feature-line"></div>
-                </div>
-                <div class="feature-card" data-delay="200">
-                    <div class="feature-glow"></div>
-                    <div class="feature-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <h3 class="gradient-text">Auto Update</h3>
-                    <p>Automatically updates to the latest version without manual intervention</p>
-                    <div class="feature-line"></div>
-                </div>
-                <div class="feature-card" data-delay="300">
-                    <div class="feature-glow"></div>
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="gradient-text">Anti-Cheat Bypass</h3>
-                    <p>Advanced anti-detection system to keep you safe</p>
-                    <div class="feature-line"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Script Section -->
-    <section class="script-section" id="script">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">
-                    <i class="fas fa-code"></i>
-                    Script
-                </span>
-                <h2 class="section-title gradient-text-animated">Get The Script</h2>
-                <p class="section-desc text-glow">Copy and execute in your favorite executor</p>
-            </div>
+        // Toggle Executors
+        function toggleExecutors() {
+            const content = document.getElementById('executor-content');
+            const arrow = document.getElementById('toggle-arrow');
             
-            <!-- Script Info Card -->
-            <div class="script-info-card">
-                <div class="card-glow"></div>
-                
-                <div class="info-header">
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="info-content">
-                            <span class="label">Made by</span>
-                            <span class="value gradient-text">Team KS</span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-code-branch"></i>
-                        </div>
-                        <div class="info-content">
-                            <span class="label">Version</span>
-                            <span class="value gradient-text">1.88</span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-calendar-alt"></i>
-                        </div>
-                        <div class="info-content">
-                            <span class="label">Latest Update</span>
-                            <span class="value gradient-text">2026.02.01</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Script Code Box -->
-                <div class="code-container">
-                    <div class="code-header">
-                        <div class="code-dots">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <span class="code-title">
-                            <i class="fas fa-file-code"></i>
-                            KS.Loader.lua
-                        </span>
-                        <button class="copy-btn" onclick="copyScript()">
-                            <i class="fas fa-copy"></i>
-                            <span>Copy</span>
-                        </button>
-                    </div>
-                    <div class="code-box">
-                        <div class="line-numbers">
-                            <span>1</span>
-                        </div>
-                        <pre class="code-content" id="scriptCode"><span class="lua-func">loadstring</span><span class="lua-paren">(</span><span class="lua-property">game</span><span class="lua-operator">:</span><span class="lua-method">HttpGet</span><span class="lua-paren">(</span><span class="lua-string">"https://raw.githubusercontent.com/KS-script/KS-RIVALS-HUB.Load/refs/heads/main/KS.Loader"</span><span class="lua-paren">)</span><span class="lua-paren">)</span><span class="lua-paren">(</span><span class="lua-paren">)</span></pre>
-                    </div>
-                </div>
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                arrow.textContent = '▼';
+            } else {
+                content.classList.add('show');
+                arrow.textContent = '▲';
+            }
+        }
 
-                <!-- Executor Compatibility -->
-                <div class="executor-section">
-                    <button class="executor-toggle" onclick="toggleExecutors()">
-                        <div class="toggle-left">
-                            <i class="fas fa-microchip"></i>
-                            <span>Executor Compatibility</span>
-                        </div>
-                        <div class="toggle-right">
-                            <span class="toggle-status">Click to view</span>
-                            <i class="fas fa-chevron-down toggle-arrow"></i>
-                        </div>
-                    </button>
-                    <div class="executor-list" id="executorList">
-                        <div class="executor-grid">
-                            <div class="executor-item not-supported">
-                                <div class="executor-info">
-                                    <span class="executor-name">Solara</span>
-                                </div>
-                                <div class="status-indicator">
-                                    <i class="fas fa-times-circle"></i>
-                                    <span>Not Supported</span>
-                                </div>
-                            </div>
-                            <div class="executor-item not-supported">
-                                <div class="executor-info">
-                                    <span class="executor-name">Xeno</span>
-                                </div>
-                                <div class="status-indicator">
-                                    <i class="fas fa-times-circle"></i>
-                                    <span>Not Supported</span>
-                                </div>
-                            </div>
-                            <div class="executor-item supported">
-                                <div class="executor-info">
-                                    <span class="executor-name">Swift</span>
-                                </div>
-                                <div class="status-indicator">
-                                    <i class="fas fa-check-circle"></i>
-                                    <span>Supported</span>
-                                </div>
-                            </div>
-                            <div class="executor-item supported">
-                                <div class="executor-info">
-                                    <span class="executor-name">Wave</span>
-                                </div>
-                                <div class="status-indicator">
-                                    <i class="fas fa-check-circle"></i>
-                                    <span>Supported</span>
-                                </div>
-                            </div>
-                            <div class="executor-item supported">
-                                <div class="executor-info">
-                                    <span class="executor-name">Potassium</span>
-                                </div>
-                                <div class="status-indicator">
-                                    <i class="fas fa-check-circle"></i>
-                                    <span>Supported</span>
-                                </div>
-                            </div>
-                            <div class="executor-item supported">
-                                <div class="executor-info">
-                                    <span class="executor-name">Volcano</span>
-                                </div>
-                                <div class="status-indicator">
-                                    <i class="fas fa-check-circle"></i>
-                                    <span>Supported</span>
-                                </div>
-                            </div>
-                            <div class="executor-item supported">
-                                <div class="executor-info">
-                                    <span class="executor-name">Zenith</span>
-                                </div>
-                                <div class="status-indicator">
-                                    <i class="fas fa-check-circle"></i>
-                                    <span>Supported</span>
-                                </div>
-                            </div>
-                            <div class="executor-item supported">
-                                <div class="executor-info">
-                                    <span class="executor-name">Seliware</span>
-                                </div>
-                                <div class="status-indicator">
-                                    <i class="fas fa-check-circle"></i>
-                                    <span>Supported</span>
-                                </div>
-                            </div>
-                            <div class="executor-item supported">
-                                <div class="executor-info">
-                                    <span class="executor-name">Velocity</span>
-                                </div>
-                                <div class="status-indicator">
-                                    <i class="fas fa-check-circle"></i>
-                                    <span>Supported</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Section -->
-    <section class="social-section" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">
-                    <i class="fas fa-share-alt"></i>
-                    Social
-                </span>
-                <h2 class="section-title gradient-text-animated">Connect With Us</h2>
-                <p class="section-desc text-glow">Follow us for updates and support</p>
-            </div>
-            <div class="social-links">
-                <a href="https://www.youtube.com/@KS_SCRIPT_Owner" target="_blank" class="social-card youtube">
-                    <div class="social-glow"></div>
-                    <div class="social-icon">
-                        <i class="fab fa-youtube"></i>
-                    </div>
-                    <span class="social-name">YouTube</span>
-                    <p>Watch tutorials & updates</p>
-                    <div class="social-arrow">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </a>
-                <div class="social-card discord disabled">
-                    <div class="social-icon">
-                        <i class="fab fa-discord"></i>
-                    </div>
-                    <span class="social-name">Discord</span>
-                    <p>Coming Soon...</p>
-                    <div class="coming-soon-badge">Soon</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-code"></i>
-                    <span class="gradient-text-animated">KS SCRIPT</span>
-                </div>
-                <p>&copy; 2026 KS SCRIPT. All rights reserved.</p>
-                <p class="footer-credit">Made with <i class="fas fa-heart"></i> by Team KS</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Toast Notification -->
-    <div class="toast" id="toast">
-        <div class="toast-icon">
-            <i class="fas fa-check"></i>
-        </div>
-        <div class="toast-content">
-            <span class="toast-title">Success!</span>
-            <span class="toast-message">Script copied to clipboard</span>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+        // Add parallax effect to orbs
+        document.addEventListener('mousemove', (e) => {
+            const orbs = document.querySelectorAll('.floating-orb');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            orbs.forEach((orb, index) => {
+                const speed = (index + 1) * 10;
+                orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+    </script>
 </body>
 </html>
